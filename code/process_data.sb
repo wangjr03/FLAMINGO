@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --time=03:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=150G
+#SBATCH --job-name process_data
+#SBATCH -A wang
+module load R
+
+
+
+./process_data_wrapper.sh /mnt/gs18/scratch/users/wangha73/HiC/$1/5kb_resolution_intrachromosomal/$3/MAPQGE30/ /mnt/ufs18/rs-027/compbio/wanglab/haowang/Proj10_recon_3D/$3/$1 /mnt/ufs18/rs-027/compbio/wanglab/haowang/Proj10_recon_3D/data/DNase/$2-DNase.imputed.pval.signal.bedgraph /mnt/gs18/scratch/users/wangha73/HiC/$1/1mb_resolution_intrachromosomal/$3/MAPQGE30/ $3

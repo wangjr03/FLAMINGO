@@ -1,0 +1,19 @@
+#!/bin/bash -login
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=5G
+#SBATCH --job-name reconstruct
+#SBATCH --array=1-49
+module purge
+module load GCC/7.3.0-2.30  OpenMPI/3.1.1
+module load R/3.5.1-X11-20180604
+
+mkdir $5
+
+Rscript 7_reconstruct_model_DNase.R $1 $2 $3 $4/Dist_frag${SLURM_ARRAY_TASK_ID}.txt $4/IF_frag${SLURM_ARRAY_TASK_ID}.txt ${SLURM_ARRAY_TASK_ID} $5 $6/DNase_3D_impute${SLURM_ARRAY_TASK_ID}.txt
+
+scontrol show job $SLURM_JOB_ID
+
+

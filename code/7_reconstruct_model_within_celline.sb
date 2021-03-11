@@ -1,0 +1,21 @@
+#!/bin/bash -login
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=5G
+#SBATCH --job-name reconstruct
+#SBATCH --array=1-300
+#SBATCH -A wang
+module purge
+module load GCC/7.3.0-2.30  OpenMPI/3.1.1
+module load R/3.5.1-X11-20180604
+
+mkdir $5
+
+Rscript 7_reconstruct_within_cellline.R $1 $2 $3 ../$4/$6/Dist_frag${SLURM_ARRAY_TASK_ID}.txt ../$4/$6/IF_frag${SLURM_ARRAY_TASK_ID}.txt 5kb_frag${SLURM_ARRAY_TASK_ID} $5
+
+scontrol show job $SLURM_JOB_ID
+
+
+

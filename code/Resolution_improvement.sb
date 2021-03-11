@@ -1,0 +1,12 @@
+#!/bin/bash -login
+#SBATCH --time=03:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=5G
+#SBATCH --job-name reconstruct
+module purge
+module load GCC/7.3.0-2.30  OpenMPI/3.1.1
+module load R/3.5.1-X11-20180604
+
+Rscript Resolution_improvement.R /mnt/gs18/scratch/users/wangha73/HiC/$1/$2_resolution_intrachromosomal/chr21/MAPQGE30/ /mnt/ufs18/rs-027/compbio/wanglab/haowang/Proj10_recon_3D/data/$1 /mnt/ufs18/rs-027/compbio/wanglab/haowang/Proj10_recon_3D/data/DNase/chr21/$3-DNase.imputed.pval.signal.bedgraph $2 $4
