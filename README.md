@@ -38,7 +38,7 @@ The pipeline of the algorithm consists of eight pieces, including data preproces
 A sample *.sbatch* file to run the model on slurm-based HPC using job array is provided (*7_resoncstruct_model_*_.sb*). <br>
 
 **Scripts**<br>
-1. *1_preprocess_HiC.R*: This script is used to normalize high-resolution interaction Hi-C interaction frequency and convert it to pairwise distance. The normalization is based on the KR normalization provided by Rao et al (2014). The normalized interaction frequencies are then transformed to the pairwise distances using the exponential transformation with \alpha =0.25. The normalized interaction frequencies and distance matrix are stored as .Rdata files for later use. <br>
+1. *1_preprocess_HiC.R*: This script is used to normalize Hi-C interaction frequencies and convert it to pairwise distance. The normalization is based on the KR normalization provided by Rao et al (2014). The normalized interaction frequencies are then transformed to the pairwise distances using the exponential transformation with \alpha =-0.25. The normalized interaction frequency matrix and distance matrix are stored as .Rdata files for later use. <br>
   Command line usage: *Rscript 1_preprocess_HiC.R \<path to the folder containing the Hi-C data> \<output path (define the working directory)>* <br>
   **Notes**: The parameter path to the folder containing the Hi-C data’ refers to the directory containing raw interaction frequency results AND KR normalization parameter files.<br>
   
@@ -71,7 +71,7 @@ Command line usage: *Rscript 8_ensemble_structure.R \<1mb interaction frequency 
 
 The sample code will reconstruct the 3D structure of chromosome 21 in GM12878 with samping rates 0.5. <br>
 
-Clone the github repo and place the sample data (link) into the folder FLAMINGO <br>
+Clone the github repo and place the sample data (https://www.dropbox.com/s/oa08ax67zqtj3bk/sample_data.tar.gz?dl=0) into the folder FLAMINGO <br>
 
 `cd ./FLAMINGO/code <br>`
 
