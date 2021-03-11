@@ -1,8 +1,8 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion **IN** 3D **G**enome **O**rganization
 ## Gallery
-3D structure for chromosome 1-4
+**3D structure for chromosome 1-4** <br>
 ![chr1-4](./predictions/images/chr1-4.png) <br>
-An orbiting chromosome 1<br>
+**An orbiting chromosome 1 on Youtube**<br>
 [![Orbiting chr1](https://img.youtube.com/vi/75t2qSxke3E/0.jpg)](https://youtu.be/75t2qSxke3E)
 
 ## Summary
