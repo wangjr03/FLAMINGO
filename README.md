@@ -1,1 +1,1 @@
-# FLAMINGO: Fast Low-rank Matrix completion in 3D Genome Organization
+# FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion **IN** 3D **G**enome **O**rganization
