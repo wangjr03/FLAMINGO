@@ -97,7 +97,7 @@ Clone the github repo and place the extracted sample data (https://www.dropbox.c
 **Wrapper**:
 `./process_data_wrapper.sh ../sample_data/GM12878_primary/5kb_resolution_intrachromosomal/chr21/MAPQGE30/ ../chr21/GM12878 ../sample_data/chr21_E116-DNase.imputed.pval.signal.bedgraph ../sample_data/GM12878_primary/1mb_resolution_intrachromosomal/chr21/MAPQGE30/ chr21`  <br>
 
-`kdir ../chr21/GM12878/result_0.5` <br>
+`mkdir ../chr21/GM12878/result_0.5` <br>
 
 `for i in {1..50};do` <br>
 `Rscript 7_reconstruct_within_cellline.R 0.5 10 0.3 ../chr21/GM12878/chr21_5kb_frag/Dist_frag${i}.txt ../chr21/GM12878/chr21_5kb_frag/IF_frag${i}.txt 5kb_frag${i} ../chr21/GM12878/result_0.5;`  <br>
