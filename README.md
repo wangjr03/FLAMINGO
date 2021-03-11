@@ -1,4 +1,9 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion **IN** 3D **G**enome **O**rganization
+## Gallery
+3D structure for chromosome 1-4
+![chr1-4](./predictions/images/chr1-4.png) <br>
+An orbiting chromosome 1<br>
+[![Orbiting chr1](https://img.youtube.com/vi/75t2qSxke3E/0.jpg)](https://youtu.be/75t2qSxke3E)
 
 ## Summary
 We developed the FLAMINGO to reconstruct the high-resolution 3D genome structures based on the chromatin contact maps with high scalability. By integrating 1D epigenomics dataset, FLAMINGO is able to make cross-cell-type predictions and reconstruct high-resolution 3D structures from low-resolution contact maps.
