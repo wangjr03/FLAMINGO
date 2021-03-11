@@ -95,7 +95,7 @@ Clone the github repo and place the extracted sample data (https://www.dropbox.c
 `kdir ../chr21/GM12878/result_0.5` <br>
 
 `for i in {1..50};do` <br>
-`script 7_reconstruct_within_cellline.R 0.5 10 0.3 ../chr21/GM12878/chr21_5kb_frag/Dist_frag${i}.txt ../chr21/GM12878/chr21_5kb_frag/IF_frag${i}.txt 5kb_frag${i} ../chr21/GM12878/result_0.5;`  <br>
+`Rscript 7_reconstruct_within_cellline.R 0.5 10 0.3 ../chr21/GM12878/chr21_5kb_frag/Dist_frag${i}.txt ../chr21/GM12878/chr21_5kb_frag/IF_frag${i}.txt 5kb_frag${i} ../chr21/GM12878/result_0.5;`  <br>
 `done`  <br>
 
 `Rscript 8_ensemble_structure_V2.R ../chr21/GM12878/chr21_1mb_IF.txt ../chr21/GM12878/backbone_structure.Rdata ../chr21/GM12878/result_0.5 ../chr21/GM12878/chr1_5kb_PD.Rdata 0.5_final_model` <br>
