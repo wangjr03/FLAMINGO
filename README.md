@@ -41,8 +41,8 @@ The pipeline of the algorithm consists of eight pieces, including data preproces
 
 **Wrapper and sample scripts for large scale applications** <br> 
 *process_data_wrapper.sh* : preprocess data, including step 1-6 introduced below.
-*process_data_wrapper.sh: <path to 5kb Hi-C directory> <working directory> <path to the DNase-seq dataset> <path to 1mb Hi-C directory> <chromosome index>*. <br>
-A sample *.sbatch* file to run the model on slurm-based HPC using job array is provided (*7_resoncstruct_model_*_.sb*). <br>
+*process_data_wrapper.sh: <path to 5kb-resolution Hi-C directory> <working directory> <path to the DNase-seq dataset> <path to 1mb-resolution Hi-C directory> <chromosome index>* . <br>
+A sample * .sbatch * file to run the model on slurm-based HPC using job array is provided (* 7_resoncstruct_model_*_.sb *). <br>
 
 **Scripts**<br>
 1. *1_preprocess_HiC.R*: This script is used to normalize Hi-C interaction frequencies and convert it to pairwise distance. The normalization is based on the KR normalization provided by Rao et al (2014). The normalized interaction frequencies are then transformed to the pairwise distances using the exponential transformation with \alpha =-0.25. The normalized interaction frequency matrix and distance matrix are stored as .Rdata files for later use. <br>
@@ -62,7 +62,7 @@ Command line usage: *Rscript 4_generate_DNase_profile.R \<path to the working di
 Command line usage: *Rscript 5_impute_DNase_dist.R \<path to the working directory>*
 
 6. *6_genereate_backbone_data.R*: This script is used to process low resolution Hi-C data, i.e. 1 Mb resolution, for the reconstruction of the domain-level structures. The method of normalization is the same as step 1.<br>
-Command line usage: *Rscript 6_genereate_backbone_data.R \<path to the 5kb Hi-C data> \<the working directory> \<chromosome index>*
+Command line usage: *Rscript 6_genereate_backbone_data.R \<path to the 5kb-resultion Hi-C data> \<the working directory> \<chromosome index>*
 
 7. 7_reconstruct_within_cellline.R and 7_reconstruct_model_DNase.R: This step is used to reconstruct the intra-domain structures from intra-domain distance matrices. It takes a pairwise distance matrix as input and returns the 3D coordinate matrix. This step has two options: (1) If the user simply wants to reconstruct the 3D genome structure from observed Hi-C data,  the 7_reconstruct_within_cellline.R should be used (FLAMINGO). (2) If the user wants to make cross cell-type predictions or improve the resolution, then 7_reconstruct_model_DNase.R should be used (iFLAMINGO). <br>
 Command line usage:
@@ -108,7 +108,7 @@ Clone the github repo and place the extracted sample data (https://www.dropbox.c
 `Rscript 8_ensemble_structure_V2.R ../chr21/GM12878/chr21_1mb_IF.txt ../chr21/GM12878/backbone_structure.Rdata ../chr21/GM12878/result_0.5 ../chr21/GM12878/chr1_5kb_PD.Rdata 0.5_final_model` <br>
 
 ## Pre-calculated 3D genome structures shown in the original papers
-We provide the pre-calculated 3D genome structure for all 23 chromosomes in six cell-types under the directory *predictions* . The sub-directories are indexed by the name of cell-types. We also provide the two results of iFLAMINGO used in the original paper: (1) 3D genome structures of chr21 in K562 based on Hi-C data in GM12878 and DNase-seq data in K562 (chr21_GM_to_K562.txt); (2) 3D genome structure of chromosome 10 in GM12878 cells under 5kb resolution based on Hi-C data in 25 kb resolution and DNase-seq data (chr10_25kb_to_5kb.txt), along with the 3D structure under 25kb resolution (chr10_25kb.txt). The file format is summarized into the following table:
+We provide the pre-calculated 3D genome structures for all 23 chromosomes in six cell-types under the directory *predictions* . The sub-directories are indexed by the name of cell-types. We also provide two results of iFLAMINGO, which are used in the original paper: (1) the 3D genome structure of chr21 in K562 based on the Hi-C data in GM12878 and DNase-seq data in K562 (chr21_GM_to_K562.txt); (2) The 3D genome structure of chromosome 10 in GM12878 cells under 5kb-resolution based on the Hi-C data in 25kb-resolution and DNase-seq data (chr10_25kb_to_5kb.txt), along with the 3D structure under 25kb-resolution (chr10_25kb.txt). The file format is summarized into the following table:
 
 | col | abbrev | type | description |
 | -----| ----- | ----- | ----- |
