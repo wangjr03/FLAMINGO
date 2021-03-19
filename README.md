@@ -107,7 +107,7 @@ Clone the github repo and place the extracted sample data (https://drive.google.
 
 `Rscript 7_reconstruct_within_cellline.R 0.5 10 0.3 ../chr21/GM12878/chr21_1mb_PD.txt ../chr21/GM12878/chr21_1mb_IF.txt backbone_structure ../chr21/GM12878` <br>
 
-`Rscript 8_ensemble_structure_V2.R ../chr21/GM12878/chr21_1mb_IF.txt ../chr21/GM12878/backbone_structure.Rdata ../chr21/GM12878/result_0.5 ../chr21/GM12878/chr1_5kb_PD.Rdata 0.5_final_model` <br>
+`Rscript 8_ensemble_structure_V2.R ../chr21/GM12878/chr21_1mb_IF.txt ../chr21/GM12878/backbone_structure.Rdata ../chr21/GM12878/result_0.5 ../chr21/GM12878/chr21_5kb_PD.Rdata 0.5_final_model` <br>
 
 ## Pre-calculated 3D genome structures
 We provide the pre-calculated 3D genome structures for all 23 chromosomes in six cell-types under the directory *predictions* . The sub-directories are indexed by the name of cell-types. We also provide two results of iFLAMINGO, which are used in the original paper: (1) the 3D genome structure of chr21 in K562 based on the Hi-C data in GM12878 and DNase-seq data in K562 (chr21_GM_to_K562.txt); (2) The 3D genome structure of chromosome 10 in GM12878 cells under 5kb-resolution based on the Hi-C data in 25kb-resolution and DNase-seq data (chr10_25kb_to_5kb.txt), along with the 3D structure under 25kb-resolution (chr10_25kb.txt). The file format is summarized into the following table:
