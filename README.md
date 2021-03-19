@@ -78,10 +78,10 @@ Command line usage: *Rscript 8_ensemble_structure.R \<1mb interaction frequency 
 
 The sample code will reconstruct the 3D structure of chromosome 21 in GM12878 with samping rates 0.5. <br>
 
-Clone the github repo and place the extracted sample data (https://www.dropbox.com/s/oa08ax67zqtj3bk/sample_data.tar.gz?dl=0) into the folder FLAMINGO <br>
+Clone the github repo and place the extracted sample data (https://drive.google.com/file/d/1zhH12OnhrCtMHtLdnSAC1NBryKajdWfL/view?usp=sharing) into the folder FLAMINGO <br>
 
 `cd ./FLAMINGO/code`
-
+`mkdir ../chr21`
 `module load bedtools`
 
 `Rscript 1_preprocess_HiC.R ../sample_data/GM12878_primary/5kb_resolution_intrachromosomal/chr21/MAPQGE30/ ../chr21/GM12878 chr21` <br>
