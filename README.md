@@ -96,7 +96,7 @@ Clone the github repo and place the extracted sample data (https://drive.google.
 
 `Rscript 6_generate_backbone_data.R ../sample_data/GM12878_primary/1mb_resolution_intrachromosomal/chr21/MAPQGE30/ ../chr21/GM12878 chr21` <br>
 
-**Wrapper**:
+**Wrapper of step 1-6, skip this step if you already run them individually**:
 `./process_data_wrapper.sh ../sample_data/GM12878_primary/5kb_resolution_intrachromosomal/chr21/MAPQGE30/ ../chr21/GM12878 .././../sample_data/chr21_E116-DNase.imputed.pval.signal.bedgraph ../sample_data/GM12878_primary/1mb_resolution_intrachromosomal/chr21/MAPQGE30/ chr21`  <br>
 
 `mkdir ../chr21/GM12878/result_0.5` <br>
