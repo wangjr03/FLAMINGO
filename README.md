@@ -90,7 +90,7 @@ Clone the github repo and place the extracted sample data (https://drive.google.
 
 `Rscript 3_generate_fragment_DNase.R ../chr21/GM12878 chr21` <br>
 
-`Rscript 4_generate_DNase_profile.R ../chr21/GM12878/Genomic_fragment ../sample_data/chr21_E116-DNase.imputed.pval.signal.bedgraph` <br>
+`Rscript 4_generate_DNase_profile.R ../chr21/GM12878/Genomic_fragment ../../../sample_data/chr21_E116-DNase.imputed.pval.signal.bedgraph` <br>
 
 `Rscript 5_impute_DNase_dist.R  ../chr21/GM12878/Genomic_fragment` <br>
 
