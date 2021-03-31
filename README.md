@@ -1,6 +1,6 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion algorithm for reconstruct**IN**g high-resolution 3D **G**enome **O**rganizations
 ## Gallery
-**3D structure for chromosome 1-4** in GM12878. The 3D structures for all 23 chromosomes could be found [here](https://docs.google.com/presentation/d/1dJXx5xVuXCd9MYfpq8AJwn1UPTieAgFbcdfJlnd8AbI/edit?usp=sharing). <br>
+**The 3D structures for chromosome 1-4** in GM12878. The 3D structures for all 23 chromosomes could be found [here](https://docs.google.com/presentation/d/1dJXx5xVuXCd9MYfpq8AJwn1UPTieAgFbcdfJlnd8AbI/edit?usp=sharing). <br>
 
 ![chr1-4](./predictions/images/chr1-4.png)
 
@@ -45,26 +45,26 @@ The pipeline of the algorithm consists of eight pieces, including data preproces
 A sample * .sbatch * file to run the model on slurm-based HPC using job array is provided (* 7_resoncstruct_model_*_.sb *). <br>
 
 **Scripts**<br>
-1. *1_preprocess_HiC.R*: This script is used to normalize Hi-C interaction frequencies and convert it to pairwise distance. The normalization is based on the KR normalization provided by Rao et al (2014). The normalized interaction frequencies are then transformed to the pairwise distances using the exponential transformation with \alpha =-0.25. The normalized interaction frequency matrix and distance matrix are stored as .Rdata files for later use. <br>
+1. *1_preprocess_HiC.R*: This script normalizes Hi-C interaction frequencies and converts it to pairwise distance. The normalization is based on the KR normalization provided by Rao et al (2014). The normalized interaction frequencies are then transformed to the pairwise distances using the exponential transformation with \alpha =-0.25. The normalized interaction frequency matrix and distance matrix are stored as .Rdata files for later use. <br>
   Command line usage: *Rscript 1_preprocess_HiC.R \<path to the folder containing the Hi-C data> \<output path (define the working directory)>* <br>
   **Notes**: The parameter path to the folder containing the Hi-C data’ refers to the directory containing raw interaction frequency results AND KR normalization parameter files.<br>
   
-2. *2_generate_fragment_data.R*: This script is used to divide the entire chromosome into large DNA domains,e.g. 1 mb. The interaction frequency matrices and distance matrices are generated for each domain by further dividing domains into small DNA fragments, i.e. 5kb. The intra-domain interaction frequency matrices and distance matrices are used for the reconstruction of intra-domain structures.<br>
+2. *2_generate_fragment_data.R*: This script divides the entire chromosome into large DNA domains,e.g. 1 mb. The interaction frequency matrices and distance matrices are generated for each domain by further dividing domains into small DNA fragments, i.e. 5kb. The intra-domain interaction frequency matrices and distance matrices are used for the reconstruction of intra-domain structures.<br>
 Command line usage: *Rscript 2_generate_fragment_data.R \<path to the working directory> \<chromosome name, i.e. chr1>*
  
-3. *3_generate_fragment_DNase.R*: This script is used to generate the genomic location for all 5kb DNA fragments, which will be used for DNase integration and the downstream biological analysis. This part is only used by iFLAMINGO and could be skipped if no epigenomics data required.<br>
+3. *3_generate_fragment_DNase.R*: This script generates the genomic location for all 5kb DNA fragments, which will be used for DNase integration and the downstream biological analysis. This part is only used by iFLAMINGO and could be skipped if no epigenomics data required.<br>
 Command line usage: *Rscript 3_generate_fragment_DNase.R \<path to the working directory> \<chromosome name, i.e. chr1>*
 
-4. *4_generate_DNase_profile.R*: This script is used to generate the averaged DNase signal for each DNA fragment. This part is only used by iFLAMINGO and could be skipped if no epigenomics data required.<br>
+4. *4_generate_DNase_profile.R*: This script generates the averaged DNase signal for each DNA fragment. This part is only used by iFLAMINGO and could be skipped if no epigenomics data required.<br>
 Command line usage: *Rscript 4_generate_DNase_profile.R \<path to the working directory> \<path to the DNase bedgraph file>*
   
-5. *5_impute_DNase_dist.R*: This script is used to predict the pairwise distance using the DNase signals of two DNA fragments and the 1D genomic distances based on a pre-trained regression model. This part is only used by iFLAMINGO and could be skipped if no epigenomics data required.<br>
+5. *5_impute_DNase_dist.R*: This script predicts the pairwise distance using the DNase signals of two DNA fragments and the 1D genomic distances based on a pre-trained regression model. This part is only used by iFLAMINGO and could be skipped if no epigenomics data required.<br>
 Command line usage: *Rscript 5_impute_DNase_dist.R \<path to the working directory>*
 
-6. *6_genereate_backbone_data.R*: This script is used to process low resolution Hi-C data, i.e. 1 mb-resolution, for the reconstruction of the domain-level structures. The method of normalization is the same as step 1.<br>
+6. *6_genereate_backbone_data.R*: This script processes low resolution Hi-C data, i.e. 1 mb-resolution, for the reconstruction of the domain-level structures. The method of normalization is the same as step 1.<br>
 Command line usage: *Rscript 6_genereate_backbone_data.R \<path to the 5kb-resultion Hi-C data> \<the working directory> \<chromosome index>*
 
-7. 7_reconstruct_within_cellline.R and 7_reconstruct_model_DNase.R: This step is used to reconstruct the intra-domain structures from intra-domain distance matrices. It takes a pairwise distance matrix as input and returns the 3D coordinate matrix. This step has two options: (1) If the user simply wants to reconstruct the 3D genome structure from the observed Hi-C data,  then 7_reconstruct_within_cellline.R should be used (FLAMINGO). (2) If the user wants to make cross cell-type predictions or improve the resolution, then 7_reconstruct_model_DNase.R should be used (iFLAMINGO). <br>
+7. 7_reconstruct_within_cellline.R and 7_reconstruct_model_DNase.R: This step reconstructs the intra-domain structures from intra-domain distance matrices. It takes a pairwise distance matrix as input and returns the 3D coordinate matrix. This step has two options: (1) If the user simply wants to reconstruct the 3D genome structure from the observed Hi-C data,  then 7_reconstruct_within_cellline.R should be used (FLAMINGO). (2) If the user wants to make cross cell-type predictions or improve the resolution, then 7_reconstruct_model_DNase.R should be used (iFLAMINGO). <br>
 Command line usage:
    1. *Rscript 7_reconstruct_within_cellline.R \fraction of basis> \<penalization term of distance between adjacent small DNA fragments> \<distance threshold to be penalized between adjacent small DNA fragments> \<input pairwise distance matrix of large DNA fragments> \<input pairwise distance matrix of large DNA fragments> \<output file name> \<output directory>*
    2. *Rscript 7_reconstruct_model_DNase.R \<fraction of basis> \<penalization term of distance between adjacent small DNA fragments> \<distance threshold to be penalized between adjacent small DNA fragments> \<input pairwise distance matrix of large DNA fragments> \<input pairwise distance matrix of large DNA fragments> \<output file name> \<output directory> \<DNase matrix generated in step 5>*<br>
