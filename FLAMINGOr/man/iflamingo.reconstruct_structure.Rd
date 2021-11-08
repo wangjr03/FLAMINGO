@@ -11,9 +11,11 @@ iflamingo.reconstruct_structure(sw, lambda, lambda_epi, max_dist, nThread = 28)
 
 \item{lambda}{The penalty term for the diagnal entries.}
 
+\item{lambda_epi}{The penalty term for the impuetd distances.}
+
 \item{max_dist}{The maximum allowed distance for the diagnal entries.}
 
-\item{mThread}{Number of thread to be used in the model, default is 28.}
+\item{nThread}{Number of thread to be used in the model, default is 28.}
 }
 \value{
 A list of flamingo_prediction object

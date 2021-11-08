@@ -13,7 +13,7 @@ flamingo.reconstruct_structure(sw, lambda, max_dist, nThread = 28)
 
 \item{max_dist}{The maximum allowed distance for the diagnal entries.}
 
-\item{mThread}{Number of thread to be used in the model, default is 28.}
+\item{nThread}{Number of thread to be used in the model, default is 28.}
 }
 \value{
 A list of flamingo_prediction object

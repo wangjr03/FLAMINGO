@@ -6,7 +6,7 @@
 #' @param sw Downsample rates, suggesting the fraction of the observed data to be used in the model.
 #' @param lambda The penalty term for the diagnal entries.
 #' @param max_dist The maximum allowed distance for the diagnal entries.
-#' @param mThread Number of thread to be used in the model, default is 28.
+#' @param nThread Number of thread to be used in the model, default is 28.
 #' @keywords FLAMINGO
 #' @return A flamingo_prediction object containing the fragment id and 3D coordinates
 #' @export

@@ -30,7 +30,7 @@ iflamingo.reconstruct_structure_worker(
 
 \item{max_dist}{The maximum allowed distance for the diagnal entries.}
 
-\item{mThread}{Number of thread to be used in the model, default is 28.}
+\item{nThread}{Number of thread to be used in the model, default is 28.}
 }
 \value{
 A flamingo_prediction object containing the fragment id and 3D coordinates

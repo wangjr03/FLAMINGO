@@ -13,15 +13,15 @@ flamingo.reconstruct_structure_wraper(
 )
 }
 \arguments{
+\item{index}{Index of a domain}
+
 \item{sw}{Downsample rates, suggesting the fraction of the observed data to be used in the model.}
 
 \item{lambda}{The penalty term for the diagnal entries.}
 
 \item{max_dist}{The maximum allowed distance for the diagnal entries.}
 
-\item{Index}{of a domain}
-
-\item{mThread}{Number of thread to be used in the model, default is 28.}
+\item{nThread}{Number of thread to be used in the model, default is 28.}
 }
 \value{
 A list of flamingo_prediction object

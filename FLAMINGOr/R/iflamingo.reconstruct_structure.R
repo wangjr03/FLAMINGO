@@ -3,15 +3,16 @@
 #' A wraper of the low-rank matrix completion algorithm to process all the domains using iflamingo
 #' @param sw Downsample rates, suggesting the fraction of the observed data to be used in the model.
 #' @param lambda The penalty term for the diagnal entries.
+#' @param lambda_epi The penalty term for the impuetd distances.
 #' @param max_dist The maximum allowed distance for the diagnal entries.
-#' @param mThread Number of thread to be used in the model, default is 28.
+#' @param nThread Number of thread to be used in the model, default is 28.
 #' @keywords FLAMINGO
 #' @return A list of flamingo_prediction object
 #' @export
 iflamingo.reconstruct_structure<- function(sw,lambda,lambda_epi,max_dist,nThread=28){
   library(parallel)
   cl <- makeCluster(nThread)
-  clusterCall(cl, function() devtools::load_all('/mnt/home/wangha73/FLAMINGO'))
+  clusterCall(cl, function() library(FLAMINGOr))
   file <- dir('./Domain_data/')
   n <- length(grep('PD',file))
   res = list()

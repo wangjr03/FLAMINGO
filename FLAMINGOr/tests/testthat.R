@@ -1,4 +1,4 @@
 library(testthat)
-library(FLAMINGO)
+library(FLAMINGOr)
 
-test_check("FLAMINGO")
+test_check("FLAMINGOr")
