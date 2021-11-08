@@ -15,7 +15,4 @@ Write out a list of files containing the genomic location and averaged epigenomi
 \description{
 Calculate the averaged epigenomic signal for each DNA fragment.
 }
-\examples{
-flamingo.calculating_epigenomic_signal('DNase.bedgraph')
-}
 \keyword{FLAMINGO}

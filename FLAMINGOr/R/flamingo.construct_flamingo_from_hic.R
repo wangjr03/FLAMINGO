@@ -9,12 +9,8 @@
 #' @param alpha convertion factor between interaction frequency and distance, default is -0.25
 #' @keywords FLAMINGO
 #' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
-#' @examples
-#' flamingo.construct_flamingo_from_hic(hic_file="4DNFI8PZOJHN.hic",normalization='KR',resolution=5e3,chr_name='chr21',chr_size=46709983)
 #' @export
 flamingo.construct_flamingo_from_hic <- function(hic_file,normalization,resolution,chr_name,chr_size,alpha=-0.25){
-  library(strawr)
-  library(Matrix)
   options(scipen = 999)
   chr_number <- gsub("chr","",chr_name)
   normalized_data = strawr::straw(normalization,hic_file,chr_number,chr_number,unit='BP',binsize=resolution)

@@ -15,7 +15,4 @@ Write the imputed 3D distances between DNA fragments.
 \description{
 Impute 3D distance between DNA fragments based on the 1D epigenomic signal
 }
-\examples{
-flamingo.impute_dist_from_epi('5e3')
-}
 \keyword{FLAMINGO}

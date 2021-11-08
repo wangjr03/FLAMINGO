@@ -9,8 +9,6 @@
 #' @param mThread Number of thread to be used in the model, default is 28.
 #' @keywords FLAMINGO
 #' @return A flamingo_prediction object containing the fragment id and 3D coordinates
-#' @examples
-#' flamingo.reconstruct_structure(IF.txt,PD.txt,0.75,10,0.01)
 #' @export
 flamingo.reconstruct_structure_worker <- function(input_if,pd,sw,lambda,max_dist,nThread=2){
   library(parallel)

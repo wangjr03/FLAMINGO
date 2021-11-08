@@ -32,7 +32,4 @@ A flamingo_prediction object containing the fragment id and 3D coordinates
 \description{
 Reconstruct the 3D genome structure using low-rank tensor completion
 }
-\examples{
-flamingo.reconstruct_structure(IF.txt,PD.txt,0.75,10,0.01)
-}
 \keyword{FLAMINGO}

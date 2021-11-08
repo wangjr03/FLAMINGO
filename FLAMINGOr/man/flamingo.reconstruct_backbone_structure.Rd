@@ -29,7 +29,4 @@ A flamingo_prediction object containing the 3D structure of the backbone.
 \description{
 A wraper of the low-rank matrix completion algorithm to reconstruct the backbone structure
 }
-\examples{
-flamingo.reconstruct_structure(flamingo_1mb_data,0.75,10,0.01)
-}
 \keyword{FLAMINGO}

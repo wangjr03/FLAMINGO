@@ -8,8 +8,6 @@
 #' @param mThread Number of thread to be used in the model, default is 28.
 #' @keywords FLAMINGO
 #' @return A list of flamingo_prediction object
-#' @examples
-#' flamingo.reconstruct_structure(0.75,10,0.01)
 #' @export
 
 flamingo.reconstruct_structure_wraper<- function(index,sw,lambda,max_dist,nThread=28){

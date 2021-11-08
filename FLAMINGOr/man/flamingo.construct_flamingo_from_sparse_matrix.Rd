@@ -33,7 +33,4 @@ A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pai
 \description{
 Generate FLAMINGO input data from the sparse format of Hi-C data from Rao et al 2014.
 }
-\examples{
-flamingo.construct_flamingo_from_sparse_matrix(raw_count_file=RawCount_5kb.txt,kr_file=KRnorm_5kb.txt,resolution=5e3,chr_size=248956422)
-}
 \keyword{FLAMINGO}

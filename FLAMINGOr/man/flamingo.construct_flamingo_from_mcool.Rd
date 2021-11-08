@@ -29,7 +29,4 @@ A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pai
 \description{
 Generate FLAMINGO input data from the .mcool format data.
 }
-\examples{
-flamingo.construct_flamingo_from_mcool('4DNFIYW415LY.mcool','KR',1e6,'chr21')
-}
 \keyword{FLAMINGO}

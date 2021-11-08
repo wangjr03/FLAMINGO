@@ -4,10 +4,8 @@
 #' @param flamingo_obj FLAMINGO object containing the 5kb resolution interaction frequency matrix and pairwise distance matrix.
 #' @keywords FLAMINGO
 #' @return An alpha value.
-#' @examples
-#' flamingo.estimate_alpha(flamingo_obj=flamingo_data)
 #' @export
-flamingo.divide_domain <- function(flamingo_obj){
+flamingo.estimate_alpha <- function(flamingo_obj){
 	input_if = flamingo_obj@IF
 	median_diag_if = median(input_if[row(input_if)-col(input_if)==1],na.rm=T)
 	alpha = -0.25*log(48)/log(median_diag_if)

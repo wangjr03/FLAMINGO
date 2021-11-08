@@ -8,17 +8,13 @@
 #' @param alpha convertion factor between interaction frequency and distance, default is -0.25
 #' @keywords FLAMINGO
 #' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
-#' @examples
-#' flamingo.construct_flamingo_from_mcool('4DNFIYW415LY.mcool','KR',1e6,'chr21')
 #' @export
 flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,resolution,chr_name,alpha=-0.25){
-  library("rhdf5")
-  library('Matrix')
   options(scipen = 999)
-  all_dir = h5ls(mcool_file)
+  all_dir = rhdf5::h5ls(mcool_file)
   parent_dir = all_dir[1,2]
   target_dir = paste(c("",parent_dir,resolution),collapse='/')
-  mcool_dat = h5read(mcool_file,target_dir)
+  mcool_dat = rhdf5::h5read(mcool_file,target_dir)
   available_normalization = setdiff(names(mcool_dat$bins),c('chrom','start','end','weight'))
   if(!normalization %in% available_normalization){
     stop(
@@ -40,7 +36,7 @@ flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,reso
   for(i in 1:(dim(csr_rawcount)[1])){
     csr_rawcount[i,3] <- csr_rawcount[i,3]/(normalization_file[csr_rawcount[i,1]]*normalization_file[csr_rawcount[i,2]])
   }
-  input_if <- sparseMatrix(i=csr_rawcount[,1],j=csr_rawcount[,2],x=csr_rawcount[,3],dims=c(n,n))
+  input_if <- Matrix::sparseMatrix(i=csr_rawcount[,1],j=csr_rawcount[,2],x=csr_rawcount[,3],dims=c(n,n))
   input_if <- as.matrix(input_if)
   input_if <- input_if + t(input_if)
   diag(input_if) <- diag(input_if)/2

@@ -6,8 +6,6 @@
 #' @param frag_res Size of the small DNA fragment.
 #' @keywords FLAMINGO
 #' @return Write out a list of Interaction Frequency matrix (IF) and Pairwise Distance matrix (PD)
-#' @examples
-#' flamingo.divide_domain(flamingo_obj=flamingo_data,domain_res=1e6,frag_res=5e3)
 #' @export
 flamingo.divide_domain <- function(flamingo_obj,domain_res,frag_res){
   options(scipen = 999)

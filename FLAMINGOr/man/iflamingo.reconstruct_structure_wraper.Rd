@@ -29,7 +29,4 @@ A list of flamingo_prediction object
 \description{
 A wraper of the low-rank matrix completion algorithm to process all the domains using iFLAMINGO
 }
-\examples{
-flamingo.reconstruct_structure(0.75,10,0.01)
-}
 \keyword{FLAMINGO}

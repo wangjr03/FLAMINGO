@@ -4,8 +4,6 @@
 #' @param frag_res Size of the small DNA fragment.
 #' @keywords FLAMINGO
 #' @return Write the imputed 3D distances between DNA fragments.
-#' @examples
-#' flamingo.impute_dist_from_epi('5e3')
 #' @export
 
 flamingo.impute_dist_from_epi <- function(frag_res){

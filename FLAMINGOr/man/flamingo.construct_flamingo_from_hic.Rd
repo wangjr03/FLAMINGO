@@ -32,7 +32,4 @@ A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pai
 \description{
 Generate FLAMINGO input data from the .hic format data.
 }
-\examples{
-flamingo.construct_flamingo_from_hic(hic_file="4DNFI8PZOJHN.hic",normalization='KR',resolution=5e3,chr_name='chr21',chr_size=46709983)
-}
 \keyword{FLAMINGO}
