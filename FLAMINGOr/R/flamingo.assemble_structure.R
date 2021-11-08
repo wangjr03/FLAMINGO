@@ -7,6 +7,7 @@
 #' @param max_iter maximum number of iteration, default is 500.
 #' @keywords FLAMINGO
 #' @return A data.frame containing the FLAMINGO predicted 3D structure.
+#' @export
 
 flamingo.assemble_structure <- function(flamingo_backbone_prediction_obj,flamingo_final_res_data_obj,list_of_flamingo_domain_prediction_obj,max_iter=500){
   n = dim(flamingo_backbone_prediction_obj@coordinates)[1]

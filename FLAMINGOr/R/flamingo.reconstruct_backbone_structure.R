@@ -10,7 +10,7 @@
 #' @return A flamingo_prediction object containing the 3D structure of the backbone.
 #' @examples
 #' flamingo.reconstruct_structure(flamingo_1mb_data,0.75,10,0.01)
-
+#' @export
 flamingo.reconstruct_backbone_structure<- function(flamingo_data_obj,sw,lambda,max_dist,nThread=28){
   res = flamingo.reconstruct_structure_worker(flamingo_data_obj@IF,flamingo_data_obj@PD,sw,lambda,max_dist,nThread)
   return(res)

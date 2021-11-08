@@ -3,9 +3,10 @@
 #' Impute 3D distance between DNA fragments based on the 1D epigenomic signal
 #' @param frag_res Size of the small DNA fragment.
 #' @keywords FLAMINGO
-#' @return Write out a list of files containing the genomic location and averaged epigenomic signals for DNA fragments.
+#' @return Write the imputed 3D distances between DNA fragments.
 #' @examples
-#' flamingo.calculating_epigenomic_signal('DNase.bedgraph')
+#' flamingo.impute_dist_from_epi('5e3')
+#' @export
 
 flamingo.impute_dist_from_epi <- function(frag_res){
   file <- dir('./Genomic_loc')

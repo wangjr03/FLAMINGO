@@ -11,6 +11,8 @@
 #' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
 #' @examples
 #' flamingo.construct_flamingo_from_sparse_matrix(raw_count_file=RawCount_5kb.txt,kr_file=KRnorm_5kb.txt,resolution=5e3,chr_size=248956422)
+#' @export
+
 flamingo.construct_flamingo_from_sparse_matrix <- function(raw_count_file,norm_file=NULL,resolution,chr_name,chr_size,alpha=-0.25){
   raw_count <- read.table(raw_count_file)
   norm_file <- read.table(norm_file)

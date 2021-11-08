@@ -6,7 +6,7 @@
 #' @return An alpha value.
 #' @examples
 #' flamingo.estimate_alpha(flamingo_obj=flamingo_data)
-
+#' @export
 flamingo.divide_domain <- function(flamingo_obj){
 	input_if = flamingo_obj@IF
 	median_diag_if = median(input_if[row(input_if)-col(input_if)==1],na.rm=T)

@@ -10,7 +10,7 @@
 #' @return A list of flamingo_prediction object
 #' @examples
 #' flamingo.reconstruct_structure(0.75,10,0.01)
-
+#' @export
 
 flamingo.reconstruct_structure_wraper<- function(index,sw,lambda,max_dist,nThread=28){
   pd <- read.table(paste0("./Domain_data/PD_domain_",index,'.txt'))

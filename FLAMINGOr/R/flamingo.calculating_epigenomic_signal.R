@@ -6,7 +6,7 @@
 #' @return Write out a list of files containing the genomic location and averaged epigenomic signals for DNA fragments.
 #' @examples
 #' flamingo.calculating_epigenomic_signal('DNase.bedgraph')
-
+#' @export
 flamingo.calculating_epigenomic_signal <- function(epigenomic_file){
   options(scipen = 999)
   all_score = bedtoolsr::bt.map(a="./Genomic_loc/Genomic_loc_all_domain.txt",b=epigenomic_file,c=4,o='mean')

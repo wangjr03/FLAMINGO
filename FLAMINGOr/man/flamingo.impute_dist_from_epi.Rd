@@ -10,12 +10,12 @@ flamingo.impute_dist_from_epi(frag_res)
 \item{frag_res}{Size of the small DNA fragment.}
 }
 \value{
-Write out a list of files containing the genomic location and averaged epigenomic signals for DNA fragments.
+Write the imputed 3D distances between DNA fragments.
 }
 \description{
 Impute 3D distance between DNA fragments based on the 1D epigenomic signal
 }
 \examples{
-flamingo.calculating_epigenomic_signal('DNase.bedgraph')
+flamingo.impute_dist_from_epi('5e3')
 }
 \keyword{FLAMINGO}

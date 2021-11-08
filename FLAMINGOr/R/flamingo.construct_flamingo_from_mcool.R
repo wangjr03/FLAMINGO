@@ -10,7 +10,7 @@
 #' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
 #' @examples
 #' flamingo.construct_flamingo_from_mcool('4DNFIYW415LY.mcool','KR',1e6,'chr21')
-
+#' @export
 flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,resolution,chr_name,alpha=-0.25){
   library("rhdf5")
   library('Matrix')

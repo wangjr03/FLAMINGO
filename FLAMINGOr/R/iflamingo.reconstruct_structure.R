@@ -9,7 +9,7 @@
 #' @return A list of flamingo_prediction object
 #' @examples
 #' iflamingo.reconstruct_structure(0.75,10,0.01)
-
+#' @export
 iflamingo.reconstruct_structure<- function(sw,lambda,lambda_epi,max_dist,nThread=28){
   library(parallel)
   cl <- makeCluster(nThread)

@@ -11,7 +11,7 @@
 #' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
 #' @examples
 #' flamingo.construct_flamingo_from_hic(hic_file="4DNFI8PZOJHN.hic",normalization='KR',resolution=5e3,chr_name='chr21',chr_size=46709983)
-
+#' @export
 flamingo.construct_flamingo_from_hic <- function(hic_file,normalization,resolution,chr_name,chr_size,alpha=-0.25){
   library(strawr)
   library(Matrix)
