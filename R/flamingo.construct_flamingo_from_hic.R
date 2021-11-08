@@ -1,0 +1,32 @@
+#' flamingo.construct_flamingo_from_hic
+#'
+#' Generate FLAMINGO input data from the .hic format data.
+#' @param hic_file Path to the hic file.
+#' @param normalization Method of normalization. Must be one of "NONE", "VC", "VC_SQRT", "KR".
+#' @param resolution Target resolution.
+#' @param chr_name chromosome name
+#' @param chr_size chromsome size
+#' @param alpha convertion factor between interaction frequency and distance, default is -0.25
+#' @keywords FLAMINGO
+#' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
+#' @examples
+#' flamingo.construct_flamingo_from_hic(hic_file="4DNFI8PZOJHN.hic",normalization='KR',resolution=5e3,chr_name='chr21',chr_size=46709983)
+
+flamingo.construct_flamingo_from_hic <- function(hic_file,normalization,resolution,chr_name,chr_size,alpha=-0.25){
+  library(strawr)
+  library(Matrix)
+  options(scipen = 999)
+  chr_number <- gsub("chr","",chr_name)
+  normalized_data = strawr::straw(normalization,hic_file,chr_number,chr_number,unit='BP',binsize=resolution)
+  n <- ceiling(chr_size/resolution)
+  i_ind <- 1+(normalized_data[,1]/resolution)
+  j_ind <- 1+(normalized_data[,2]/resolution)
+  input_if = Matrix::sparseMatrix(i=i_ind,j=j_ind,x=normalized_data[,3],dims=c(n,n))
+  input_if <- as.matrix(input_if)
+  input_if <- input_if + t(input_if)
+  diag(input_if) <- diag(input_if)/2
+  pd <- input_if^(alpha)
+  res = new('flamingo',IF=input_if,PD=pd,n_frag=n,chr_name=chr_name)
+  return(res)
+  
+}

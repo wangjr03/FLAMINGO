@@ -1,0 +1,20 @@
+Package: FLAMINGO
+Title: Reconstruct the 3D genome structure from Hi-C contact maps
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Hao",
+           family = "Wang",
+           role = c("aut", "cre"),
+           email = "wangha73@msu.edu")
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2.9000
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
