@@ -10,7 +10,7 @@
 #' @export
 flamingo.reconstruct_structure<- function(sw,lambda,max_dist,nThread=28){
   cl <- parallel::makeCluster(nThread)
-  clusterCall(cl, function() library(FLAMINGOr))
+  parallel::clusterCall(cl, function() library(FLAMINGOr))
   file <- dir('./Domain_data/')
   n <- length(grep('PD',file))
   res = list()

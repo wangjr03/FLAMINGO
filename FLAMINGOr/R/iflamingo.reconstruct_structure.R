@@ -10,15 +10,14 @@
 #' @return A list of flamingo_prediction object
 #' @export
 iflamingo.reconstruct_structure<- function(sw,lambda,lambda_epi,max_dist,nThread=28){
-  library(parallel)
-  cl <- makeCluster(nThread)
-  clusterCall(cl, function() library(FLAMINGOr))
+  cl <- parallel::makeCluster(nThread)
+  parallel::clusterCall(cl, function() library(FLAMINGOr))
   file <- dir('./Domain_data/')
   n <- length(grep('PD',file))
   res = list()
   domain_id <- c()
-  clusterExport(cl,c("sw","lambda","max_dist"),envir=environment())
-  worker_res = parSapply(cl,1:n,function(x){
+  parallel::clusterExport(cl,c("sw","lambda","max_dist"),envir=environment())
+  worker_res = parallel::parSapply(cl,1:n,function(x){
     iflamingo.reconstruct_structure_wraper(x,sw,lambda,max_dist,nThread)
   })
   for(i in 1:length(worker_res)){
