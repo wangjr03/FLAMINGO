@@ -18,7 +18,7 @@ iflamingo.reconstruct_structure<- function(sw,lambda,lambda_epi,max_dist,nThread
   domain_id <- c()
   parallel::clusterExport(cl,c("sw","lambda","max_dist"),envir=environment())
   worker_res = parallel::parSapply(cl,1:n,function(x){
-    iflamingo.reconstruct_structure_wraper(x,sw,lambda,max_dist,nThread)
+    iflamingo.reconstruct_structure_wraper(x,sw,lambda,max_dist,nThread=1)
   })
   for(i in 1:length(worker_res)){
     if(!is.null(worker_res[[i]])){

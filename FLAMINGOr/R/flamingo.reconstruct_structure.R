@@ -17,7 +17,7 @@ flamingo.reconstruct_structure<- function(sw,lambda,max_dist,nThread=28){
   domain_id <- c()
   parallel::clusterExport(cl,c("sw","lambda","max_dist"),envir=environment())
   worker_res = parallel::parSapply(cl,1:n,function(x){
-    flamingo.reconstruct_structure_wraper(x,sw,lambda,max_dist,nThread)
+    flamingo.reconstruct_structure_wraper(x,sw,lambda,max_dist,nThread=1)
   })
   for(i in 1:length(worker_res)){
     if(!is.null(worker_res[[i]])){
