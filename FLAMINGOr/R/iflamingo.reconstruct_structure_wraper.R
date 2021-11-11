@@ -13,7 +13,7 @@
 iflamingo.reconstruct_structure_wraper<- function(index,sw,lambda,max_dist,nThread=28){
   pd <- read.table(paste0("./Domain_data/PD_domain_",index,'.txt'))
   input_if <- read.table(paste0("./Domain_data/IF_domain_",index,'.txt'))
-  epi_feature <- read.table(paste0("./Genomic_loc/3D_Dist_impute_Epi_",i,'.txt'))
+  epi_feature <- read.table(paste0("./Genomic_loc/3D_Dist_impute_Epi_",index,'.txt'))
   file <- dir('./Domain_data/')
   if(check_data_availability(pd)){
     res =  iflamingo.reconstruct_structure_worker(input_if,pd,dist_epi,sw,lambda,lambda_epi,max_dist,nThread=1)
