@@ -4,6 +4,7 @@
 #' @param index Index of a domain
 #' @param sw Downsample rates, suggesting the fraction of the observed data to be used in the model.
 #' @param lambda The penalty term for the diagnal entries.
+#' @param lambda_epi The penalty term for the epigenomic term.
 #' @param max_dist The maximum allowed distance for the diagnal entries.
 #' @param nThread Number of thread to be used in the model, default is 28.
 #' @keywords FLAMINGO
