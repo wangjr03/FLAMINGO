@@ -26,6 +26,9 @@ flamingo.construct_flamingo_from_sparse_matrix <- function(raw_count_file,norm_f
     tmp_i <- i_ind[i]
     tmp_j <- j_ind[i]
     normalized_mat[tmp_i,tmp_j] <- raw_count[i,3]/(norm_file[tmp_i,]*norm_file[tmp_j,])
+    if(is.na(normalized_mat[tmp_i,tmp_j])){
+    normalized_mat[tmp_i,tmp_j] <- 0
+    }
     pb$tick()
   }
   
