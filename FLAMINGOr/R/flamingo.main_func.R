@@ -19,7 +19,7 @@
 #' @param norm_high Optional. The normalization vector for the high resolution Hi-C data. Only required if the file_format is 'sparse matrix'
 #' @keywords FLAMINGO
 #' @return A data.frame containing the FLAMINGO predicted 3D structure.
-#' @export
+
 
 flamingo.main_func <- function(hic_data_low,file_format,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
   if(!file_format %in% c('sparse matrix','hic','mcool')){
@@ -40,7 +40,7 @@ flamingo.main_func <- function(hic_data_low,file_format,domain_res,frag_res,chr_
                                                                   chr_name=chr_name,
                                                                   normalization = normalization,
                                                                   alpha=alpha)
-    flamingo_hig_res_data_obj <- flamingo.construct_flamingo_from_hic(hic_file = hic_data_low,
+    flamingo_high_res_data_obj <- flamingo.construct_flamingo_from_hic(hic_file = hic_data_low,
                                                                   resolution = frag_res,
                                                                   chr_size=chr_size,
                                                                   chr_name=chr_name,
@@ -53,7 +53,7 @@ flamingo.main_func <- function(hic_data_low,file_format,domain_res,frag_res,chr_
                                                                         chr_name=chr_name,
                                                                         normalization = normalization,
                                                                         alpha=alpha)
-    flamingo_hig_res_data_obj <- flamingo.construct_flamingo_from_mcool(mcool_file = hic_data_low,
+    flamingo_high_res_data_obj <- flamingo.construct_flamingo_from_mcool(mcool_file = hic_data_low,
                                                                         resolution = frag_res,
                                                                         chr_name=chr_name,
                                                                         normalization = normalization,
@@ -73,13 +73,13 @@ flamingo.main_func <- function(hic_data_low,file_format,domain_res,frag_res,chr_
                                                                                 chr_size=chr_size,
                                                                                 alpha=alpha)
   }
-  
+  print('Dividing domains...')
   flamingo.divide_domain(flamingo_obj = flamingo_high_res_data_obj,domain_res=domain_res,frag_res=frag_res)
-  
-  flamingo_backbone_prediction = flamingo.reconstruct_backbone_structure(flamingo_data_obj = flamingo_low_res_data_obj,sw=downsampling_rates,lambda=lambda,max_dist = max_dist,nThread=nThread)
-  
+  print('Reconstructing backbones...')
+  flamingo_backbone_prediction = flamingo.reconstruct_backbone_structure(flamingo_data_obj = flamingo_low_res_data_obj,sw=downsampling_rates,lambda=lambda,max_dist = max_dist,nThread=1)
+  print('Reconstructing intra-domain structures...')
   flamigo_intra_domain_prediction = flamingo.reconstruct_structure(sw=downsampling_rates,lambda = lambda,max_dist = max_dist,nThread=nThread)
-  
+  print('Assembling structures...')
   res = flamingo.assemble_structure(flamingo_backbone_prediction_obj=flamingo_backbone_prediction,
                               flamingo_final_res_data_obj=flamingo_high_res_data_obj,
                               list_of_flamingo_domain_prediction_obj=flamigo_intra_domain_prediction,
