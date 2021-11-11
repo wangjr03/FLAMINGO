@@ -29,7 +29,7 @@ flamingo.construct_flamingo_from_sparse_matrix <- function(raw_count_file,norm_f
     pb$tick()
   }
   
-  input_if <-                                                                                                
+  input_if <- normalized_mat                                                                                             
   input_if <- input_if + t(input_if)
   diag(input_if) <- diag(input_if)/2
   pd <- input_if^(alpha)
