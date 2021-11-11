@@ -16,7 +16,7 @@ iflamingo.reconstruct_structure_wraper<- function(index,sw,lambda,max_dist,nThre
   epi_feature <- read.table(paste0("./Genomic_loc/3D_Dist_impute_Epi_",index,'.txt'))
   file <- dir('./Domain_data/')
   if(check_data_availability(pd)){
-    res =  iflamingo.reconstruct_structure_worker(input_if,pd,dist_epi,sw,lambda,lambda_epi,max_dist,nThread=1)
+    res =  iflamingo.reconstruct_structure_worker(input_if,pd,epi_feature,sw,lambda,lambda_epi,max_dist,nThread=1)
   }else{
     res = NULL
   }
