@@ -19,7 +19,7 @@
 #' @param norm_high Optional. The normalization vector for the high resolution Hi-C data. Only required if the file_format is 'sparse matrix'
 #' @keywords FLAMINGO
 #' @return A data.frame containing the FLAMINGO predicted 3D structure.
-
+#' @export
 
 flamingo.main_func <- function(hic_data_low,file_format,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
   if(!file_format %in% c('sparse matrix','hic','mcool')){
