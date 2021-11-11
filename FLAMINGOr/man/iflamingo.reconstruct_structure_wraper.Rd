@@ -8,6 +8,7 @@ iflamingo.reconstruct_structure_wraper(
   index,
   sw,
   lambda,
+  lambda_epi,
   max_dist,
   nThread = 28
 )
@@ -18,6 +19,8 @@ iflamingo.reconstruct_structure_wraper(
 \item{sw}{Downsample rates, suggesting the fraction of the observed data to be used in the model.}
 
 \item{lambda}{The penalty term for the diagnal entries.}
+
+\item{lambda_epi}{The penalty term for the epigenomic term.}
 
 \item{max_dist}{The maximum allowed distance for the diagnal entries.}
 

@@ -1,4 +1,4 @@
-#' flamingo.main
+#' flamingo.main_func
 #'
 #' Main function of FLAMINGO, a wraper for all steps
 #' @param hic_data_low Input Hi-C data in .hic format, .mcool format or sparse matrix format.
@@ -21,7 +21,7 @@
 #' @return A data.frame containing the FLAMINGO predicted 3D structure.
 
 
-flamingo.main <- function(hic_data_low,file_format,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
+flamingo.main_func <- function(hic_data_low,file_format,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
   if(!file_format %in% c('sparse matrix','hic','mcool')){
     stop("file format must be one of: 'sparse matrix'','hic' or 'mcool'")
   }
