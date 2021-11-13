@@ -23,7 +23,7 @@
 #' @return A data.frame containing the FLAMINGO predicted 3D structure.
 #' @export
 
-flamingo.main_func <- function(hic_data_low,file_format,epigenomic_file,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,lambda_epi,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
+iflamingo.main_func <- function(hic_data_low,file_format,epigenomic_file,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,lambda_epi,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
   if(!file_format %in% c('sparse matrix','hic','mcool')){
     stop("file format must be one of: 'sparse matrix'','hic' or 'mcool'")
   }
