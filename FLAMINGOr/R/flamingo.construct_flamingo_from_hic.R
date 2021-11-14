@@ -21,7 +21,7 @@ flamingo.construct_flamingo_from_hic <- function(hic_file,normalization,resoluti
   if(n<50000){
     input_if <- as.matrix(input_if)
   }else{
-    input_if <- convert_huge_matrix(input_if)
+    input_if <- convert_huge_mat(input_if)
   }
   input_if <- input_if + t(input_if)
   diag(input_if) <- diag(input_if)/2
