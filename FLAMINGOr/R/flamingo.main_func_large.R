@@ -76,8 +76,8 @@ flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_re
   print('Dividing domains...')
   flamingo.divide_domain(flamingo_obj = flamingo_high_res_data_obj,domain_res=domain_res,frag_res=frag_res)
   print('caching datasets...')
-  data.table::fwrite(flamingo_high_res_data_obj@IF,"tmp_IF.txt.gz",col.names=F,row.names=F,sep='\t',quote=F,nThread=nThread)
-  data.table::fwrite(flamingo_high_res_data_obj@PD,"tmp_PD.txt.gz",col.names=F,row.names=F,sep='\t',quote=F,nThread=nThread)
+  write_huge_mat(flamingo_high_res_data_obj@IF,"tmp_IF.txt.gz",nThread=nThread)
+  write_huge_mat(flamingo_high_res_data_obj@PD,"tmp_PD.txt.gz",nThread=nThread)
   high_res_n_frag = flamingo_high_res_data_obj@n_frag
   high_res_chr_name = flamingo_high_res_data_obj@chr_name
   rm(flamingo_high_res_data_obj)
@@ -87,7 +87,9 @@ flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_re
   flamigo_intra_domain_prediction = flamingo.reconstruct_structure(sw=downsampling_rates,lambda = lambda,max_dist = max_dist,nThread=nThread)
   print('Assembling structures...')
   flamingo_high_res_IF = data.table::fread("tmp_IF.txt.gz",sep='\t',header=F,nThread=nThread)
+  flamingo_high_res_IF = as.matrix(flamingo_high_res_IF)
   flamingo_high_res_PD = data.table::fread("tmp_PD.txt.gz",sep='\t',header=F,nThread=nThread)
+  flamingo_high_res_PD = as.matrix(flamingo_high_res_PD)
   flamingo_high_res_data_obj = new('flamingo',IF=flamingo_high_res_IF,PD=flamingo_high_res_PD,n_frag=high_res_n_frag,chr_name=high_res_chr_name)
   res = flamingo.assemble_structure(flamingo_backbone_prediction_obj=flamingo_backbone_prediction,
                               flamingo_final_res_data_obj=flamingo_high_res_data_obj,

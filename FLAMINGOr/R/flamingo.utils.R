@@ -292,3 +292,16 @@ convert_huge_mat <- function(sparse_mat){
   }
   return(res)
 }
+
+write_huge_mat <- function(mat,file_path,nThread=10){
+  n = dim(mat)[1]
+  block_size=1000
+  n_block = ceiling(n/block_size)
+  pb <- progress::progress_bar$new(total = n_block)
+  for(row in 1:n_block){
+    start_id = 1+(row-1)*1000
+    end_id = min(row*1000,n)
+    data.table::fwrite(mat[start_id:end_id,],file_path,col.names=F,row.names=F,sep='\t',quote=F,append=T,nThread=nThread)
+    pb$tick()
+  }
+}
