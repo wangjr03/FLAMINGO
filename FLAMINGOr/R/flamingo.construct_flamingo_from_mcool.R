@@ -6,10 +6,11 @@
 #' @param resolution Target resolution.
 #' @param chr_name chromosome name
 #' @param alpha convertion factor between interaction frequency and distance, default is -0.25
+#' @param n_row number of rows to use the large matrix mode, default to 45000
 #' @keywords FLAMINGO
 #' @return A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.
 #' @export
-flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,resolution,chr_name,alpha=-0.25){
+flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,resolution,chr_name,alpha=-0.25,n_row=45000){
   options(scipen = 999)
   all_dir = rhdf5::h5ls(mcool_file)
   parent_dir = all_dir[1,2]
@@ -37,7 +38,7 @@ flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,reso
     csr_rawcount[i,3] <- csr_rawcount[i,3]/(normalization_file[csr_rawcount[i,1]]*normalization_file[csr_rawcount[i,2]])
   }
   input_if <- Matrix::sparseMatrix(i=csr_rawcount[,1],j=csr_rawcount[,2],x=csr_rawcount[,3],dims=c(n,n))
-  if(n<50000){
+  if(n<n_row){
     input_if <- as.matrix(input_if)
   }else{
     input_if <- convert_huge_mat(input_if)

@@ -9,7 +9,8 @@ flamingo.construct_flamingo_from_mcool(
   normalization,
   resolution,
   chr_name,
-  alpha = -0.25
+  alpha = -0.25,
+  n_row = 45000
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ flamingo.construct_flamingo_from_mcool(
 \item{chr_name}{chromosome name}
 
 \item{alpha}{convertion factor between interaction frequency and distance, default is -0.25}
+
+\item{n_row}{number of rows to use the large matrix mode, default to 45000}
 }
 \value{
 A FLAMINGO object containing the resulted Interaction Frequency (IF) matrix, Pairwise Distance (PD) matrix and number of fragments.

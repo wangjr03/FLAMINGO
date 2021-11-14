@@ -20,7 +20,8 @@ flamingo.main_func_large(
   max_iter = 500,
   hic_data_high = NULL,
   norm_low = NULL,
-  norm_high = NULL
+  norm_high = NULL,
+  n_row = 45000
 )
 }
 \arguments{
@@ -55,6 +56,8 @@ flamingo.main_func_large(
 \item{norm_low}{Optional. The normalization vector for the low resolution Hi-C data. Only required if the file_format is 'sparse matrix'.}
 
 \item{norm_high}{Optional. The normalization vector for the high resolution Hi-C data. Only required if the file_format is 'sparse matrix'.}
+
+\item{n_row}{Optional. Number of rows to use the large matrix format. reduce the number if memory is limited. default t0 45000 rows.}
 }
 \value{
 A data.frame containing the FLAMINGO predicted 3D structure.

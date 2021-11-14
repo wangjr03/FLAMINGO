@@ -17,11 +17,12 @@
 #' @param hic_data_high Optional. The high resolution HiC data in sparse matrix format. Only required if the file_format is 'sparse matrix'.
 #' @param norm_low Optional. The normalization vector for the low resolution Hi-C data. Only required if the file_format is 'sparse matrix'.
 #' @param norm_high Optional. The normalization vector for the high resolution Hi-C data. Only required if the file_format is 'sparse matrix'.
+#' @param n_row Optional. Number of rows to use the large matrix format. reduce the number if memory is limited. default t0 45000 rows.
 #' @keywords FLAMINGO
 #' @return A data.frame containing the FLAMINGO predicted 3D structure.
 #' @export
 
-flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL){
+flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_res,chr_size,chr_name,normalization,downsampling_rates,lambda,max_dist,nThread,alpha=-0.25,max_iter=500,hic_data_high=NULL,norm_low=NULL,norm_high=NULL,n_row=45000){
   if(!file_format %in% c('sparse matrix','hic','mcool')){
     stop("file format must be one of: 'sparse matrix'','hic' or 'mcool'")
   }
@@ -39,25 +40,29 @@ flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_re
                                                                   chr_size=chr_size,
                                                                   chr_name=chr_name,
                                                                   normalization = normalization,
-                                                                  alpha=alpha)
+                                                                  alpha=alpha,
+                                                                  n_row=n_row)
     flamingo_high_res_data_obj <- flamingo.construct_flamingo_from_hic(hic_file = hic_data_low,
                                                                   resolution = frag_res,
                                                                   chr_size=chr_size,
                                                                   chr_name=chr_name,
                                                                   normalization = normalization,
-                                                                  alpha=alpha)
+                                                                  alpha=alpha,
+                                                                  n_row=n_row)
   }
   if(file_format=='mcool'){
     flamingo_low_res_data_obj <- flamingo.construct_flamingo_from_mcool(mcool_file = hic_data_low,
                                                                         resolution = domain_res,
                                                                         chr_name=chr_name,
                                                                         normalization = normalization,
-                                                                        alpha=alpha)
+                                                                        alpha=alpha,
+                                                                        n_row=n_row)
     flamingo_high_res_data_obj <- flamingo.construct_flamingo_from_mcool(mcool_file = hic_data_low,
                                                                         resolution = frag_res,
                                                                         chr_name=chr_name,
                                                                         normalization = normalization,
-                                                                        alpha=alpha)
+                                                                        alpha=alpha,
+                                                                        n_row=n_row)
   }
   if(file_format=='sparse matrix'){
     flamingo_low_res_data_obj <- flamingo.construct_flamingo_from_sparse_matrix(raw_count_file = hic_data_low,
