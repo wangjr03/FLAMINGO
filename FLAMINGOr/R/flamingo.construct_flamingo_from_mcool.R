@@ -37,7 +37,11 @@ flamingo.construct_flamingo_from_mcool <- function(mcool_file,normalization,reso
     csr_rawcount[i,3] <- csr_rawcount[i,3]/(normalization_file[csr_rawcount[i,1]]*normalization_file[csr_rawcount[i,2]])
   }
   input_if <- Matrix::sparseMatrix(i=csr_rawcount[,1],j=csr_rawcount[,2],x=csr_rawcount[,3],dims=c(n,n))
-  input_if <- as.matrix(input_if)
+  if(n<50000){
+    input_if <- as.matrix(input_if)
+  }else{
+    input_if <- convert_huge_matrix(input_if)
+  }
   input_if <- input_if + t(input_if)
   diag(input_if) <- diag(input_if)/2
   pd <- input_if^(alpha)

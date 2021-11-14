@@ -275,21 +275,20 @@ check_data_availability <- function(x){
   }
 }
 
-write.vtk <- function(points,lookup_table,name,opt_path){
-  write.table("# vtk DataFile Version 1.0",opt_path,col.names = F,row.names = F,sep = "\n",quote=F)
-  # cat("# vtk DataFile Version 1.0\n")
-  write.table(name,opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table("ASCII",opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table("\nDATASET POLYDATA",opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  n_points <- dim(points)[1]
-  write.table(paste("POINTS",n_points,"float"),opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table(points,opt_path,col.names = F,row.names = F,quote=F,append = T)
-  write.table("\n",opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table(paste("LINES 1",n_points+1,n_points),opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  lines <- 0:(n_points-1)
-  write.table(lines,opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table("\n",opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table(paste("POINT_DATA",n_points),opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table(paste("SCALARS volume float\n","LOOKUP_TABLE default"),opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
-  write.table(lookup_table,opt_path,col.names = F,row.names = F,sep = "\n",quote=F,append = T)
+convert_huge_mat <- function(sparse_mat){
+  print('Contact map is too large, large matrix mod is on')
+  n <- dim(input_if)[1]
+  res <- matrix(0,n,n)
+  n_bin <- ceiling(n/1000)
+  bin_size = 1000
+  pb <- progress::progress_bar$new(total = n_bin*n_bin)
+  for(i in 1:n_bin){
+    row_idx = (1+(i-1)*bin_size):min(n,i*bin_size)
+    for(j in 1:n_bin){
+      col_idx = (1+(j-1)*bin_size):min(n,j*bin_size)
+      res[row_idx,col_idx] <- as.matrix(input_if[row_idx,col_idx])
+      pb$tick()
+    }
+  }
+  return(res)
 }

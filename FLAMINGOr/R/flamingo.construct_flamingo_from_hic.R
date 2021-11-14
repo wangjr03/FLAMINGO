@@ -18,7 +18,11 @@ flamingo.construct_flamingo_from_hic <- function(hic_file,normalization,resoluti
   i_ind <- 1+(normalized_data[,1]/resolution)
   j_ind <- 1+(normalized_data[,2]/resolution)
   input_if = Matrix::sparseMatrix(i=i_ind,j=j_ind,x=normalized_data[,3],dims=c(n,n))
-  input_if <- as.matrix(input_if)
+  if(n<50000){
+    input_if <- as.matrix(input_if)
+  }else{
+    input_if <- convert_huge_matrix(input_if)
+  }
   input_if <- input_if + t(input_if)
   diag(input_if) <- diag(input_if)/2
   pd <- input_if^(alpha)
