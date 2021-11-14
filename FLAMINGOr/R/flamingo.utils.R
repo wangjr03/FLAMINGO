@@ -277,7 +277,7 @@ check_data_availability <- function(x){
 
 convert_huge_mat <- function(sparse_mat){
   print('Contact map is too large, large matrix mod is on')
-  n <- dim(input_if)[1]
+  n <- dim(sparse_mat)[1]
   res <- matrix(0,n,n)
   n_bin <- ceiling(n/1000)
   bin_size = 1000
@@ -286,7 +286,7 @@ convert_huge_mat <- function(sparse_mat){
     row_idx = (1+(i-1)*bin_size):min(n,i*bin_size)
     for(j in 1:n_bin){
       col_idx = (1+(j-1)*bin_size):min(n,j*bin_size)
-      res[row_idx,col_idx] <- as.matrix(input_if[row_idx,col_idx])
+      res[row_idx,col_idx] <- as.matrix(sparse_mat[row_idx,col_idx])
       pb$tick()
     }
   }
