@@ -43,7 +43,15 @@ flamingo.reconstruct_structure_worker <- function(input_if,pd,sw,lambda,max_dist
   omega_diag = omega[diag_term,]
   omega <<- omega[unique(c(diag_term,sample(1:n_omega,sw*n_omega))),]
   n_omega <- dim(omega)[1]
-  n_omega_diag <- dim(omega_diag)[1]
+  if(length(diag_term)==1){
+    n_omega_diag=1
+    omega_diag = matrix(omega_diag,ncol=2)
+  }
+  else if(length(diag_term)==0){
+    return(NULL)
+  }else{
+    n_omega_diag <- dim(omega_diag)[1]
+  }
   # prepare for the optimization
   clusterExport(cl,"omega",envir=environment())
   clusterExport(cl,"omega_diag",envir=environment())
@@ -86,6 +94,7 @@ flamingo.reconstruct_structure_worker <- function(input_if,pd,sw,lambda,max_dist
     frag_id <- 1:n
   }
   stopCluster(cl)
+  p_t <- p_t[frag_id,]
   return(new('flamingo_prediction',id=frag_id,coordinates=p_t,input_n=n))
 }
 
