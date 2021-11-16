@@ -82,7 +82,6 @@ flamingo.assemble_structure <- function(flamingo_backbone_prediction_obj,flaming
   N <- dim(do.call(rbind,all_points))[1]
   p_p <- matrix(0,N,3)
   iter <- 1
-  print('part 2 yes')
   while(error>1e-4&error_change>1e-5){
     y_s <- get_start_point(all_points)
     y_e <- get_end_point(all_points)

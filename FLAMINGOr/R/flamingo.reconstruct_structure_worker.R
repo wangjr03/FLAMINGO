@@ -94,7 +94,6 @@ flamingo.reconstruct_structure_worker <- function(input_if,pd,sw,lambda,max_dist
     frag_id <- 1:n
   }
   stopCluster(cl)
-  p_t <- p_t[frag_id,]
   return(new('flamingo_prediction',id=frag_id,coordinates=p_t,input_n=n))
 }
 

@@ -229,14 +229,34 @@ get_end_point <- function(all_points){
   
 }
 
+ave_dist <- function(r,pd){
+  n = dim(pd)[1]
+  res = c()
+  k <- 1
+  for(i in 1:(n-r)){
+  if(is.na(pd[i,i+r])){
+      next
+    }
+    if(pd[i,i+r]<Inf){
+      res[k] <- pd[i,i+r]
+      k <- k+1
+    }
+  }
+  a = mean(res)
+  return(mean(a))
+}
+
 get_dist_vec <- function(all_points,id_list,pd){
   n <- length(all_points)
   start_id <- sapply(id_list[2:(n)],function(y){y[1]})
   end_id <- sapply(id_list[1:(n-1)],function(y){tail(y,n=1)})
   dist_vec <- c()
   for(i in 1:(n-1)){
-    
-    dist_vec = c(dist_vec,pd[start_id[i],end_id[i]])
+    tmp_dist = pd[start_id[i],end_id[i]]
+    if(tmp_dist == Inf){
+      tmp_dist = ave_dist(start_id[i]-end_id[i],pd)
+    }
+    dist_vec = c(dist_vec,tmp_dist)
     
   }
   dist_vec[which(dist_vec > 3)] <- max(dist_vec[which(dist_vec<3)])
