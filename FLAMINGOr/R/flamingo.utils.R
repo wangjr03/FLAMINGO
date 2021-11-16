@@ -253,7 +253,9 @@ get_dist_vec <- function(all_points,id_list,pd){
   dist_vec <- c()
   for(i in 1:(n-1)){
     tmp_dist = pd[start_id[i],end_id[i]]
-    if(tmp_dist == Inf){
+    if(is.na(tmp_dist)){
+      tmp_dist = ave_dist(start_id[i]-end_id[i],pd)
+    }else if(tmp_dist == Inf){
       tmp_dist = ave_dist(start_id[i]-end_id[i],pd)
     }
     dist_vec = c(dist_vec,tmp_dist)

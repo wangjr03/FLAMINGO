@@ -26,8 +26,8 @@ flamingo.assemble_structure <- function(flamingo_backbone_prediction_obj,flaming
       next
     }
     tmp_domain_res = list_of_flamingo_domain_prediction_obj[[as.character(counter)]]
-    p_t <- as.matrix(tmp_domain_res@coordinates)
     tmp_id <- tmp_domain_res@id
+    p_t <- as.matrix(tmp_domain_res@coordinates)[tmp_id,]
     tmp_center <- backbone[which(backbone_id==counter),]
     rm_id <- setdiff(1:n,tmp_id)
     rm_id_list[[counter_idx]] <- rm_id
@@ -100,10 +100,9 @@ flamingo.assemble_structure <- function(flamingo_backbone_prediction_obj,flaming
       tmp_points <- all_points[[i]]
       tmp_start <- tmp_points[1,]
       tmp_center <- total_struc[i,]
-      old_direction <- as.vector(as.matrix(tmp_start-tmp_center))
+      old_direction <- as.vector(as.matrix(tmp_start-tmp_center))+1e-3
       new_direction <- y_s_prim[i-1,] - tmp_center
       r_mat <- rotation_matrix(old_direction,new_direction)
-      
       all_points[[i]] <- rotate(all_points[[i]],total_struc[i,],r_mat)
     }
     #update structure
@@ -121,7 +120,7 @@ flamingo.assemble_structure <- function(flamingo_backbone_prediction_obj,flaming
         tmp_points <- all_points[[i]]
         tmp_end <- tail(tmp_points,n=1)
         tmp_center <- total_struc[i,]
-        old_direction <- as.vector(as.matrix(tmp_end-tmp_center))
+        old_direction <- as.vector(as.matrix(tmp_end-tmp_center))+1e-3
         new_direction <- y_e_prim[i,] - tmp_center
         r_mat <- rotation_matrix(old_direction,new_direction)
         all_points[[i]] <- rotate(all_points[[i]],total_struc[i,],r_mat)
