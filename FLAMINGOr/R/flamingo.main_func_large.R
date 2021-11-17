@@ -27,7 +27,7 @@ flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_re
     stop("file format must be one of: 'sparse matrix'','hic' or 'mcool'")
   }
   if(file_format=='sparse matrix'){
-    if(is.null(hic_data_2)){
+    if(is.null(hic_data_high)){
       stop('To use the sparse matrix format input data, please provide both low resolution data and high resolution data by setting parameters hic_data_low and hic_data_high')
     }
     if(is.null(norm_low) | is.null(norm_high)){
