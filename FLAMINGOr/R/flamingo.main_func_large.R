@@ -90,6 +90,7 @@ flamingo.main_func_large <- function(hic_data_low,file_format,domain_res,frag_re
   flamingo_backbone_prediction = flamingo.reconstruct_backbone_structure(flamingo_data_obj = flamingo_low_res_data_obj,sw=downsampling_rates,lambda=lambda,max_dist = max_dist,nThread=1)
   print('Reconstructing intra-domain structures...')
   flamigo_intra_domain_prediction = flamingo.reconstruct_structure(sw=downsampling_rates,lambda = lambda,max_dist = max_dist,nThread=nThread)
+  save(flamigo_intra_domain_prediction,file="intra_domain.Rdata")
   print('Assembling structures...')
   flamingo_high_res_IF = data.table::fread("tmp_IF.txt.gz",sep='\t',header=F,nThread=nThread)
   flamingo_high_res_IF = as.matrix(flamingo_high_res_IF)
