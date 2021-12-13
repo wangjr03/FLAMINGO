@@ -8,6 +8,9 @@
 **An orbiting chromosome 1 on Youtube**<br>
 [![Orbiting chr1](https://img.youtube.com/vi/75t2qSxke3E/0.jpg)](https://youtu.be/75t2qSxke3E)
 
+** The 3D genome structure in 1kb resolution for chromosomes 14,16,17,19,21 and 22**<br>
+![1kb_resolution](./predictions/images/1kb_res.png)
+
 ## Summary
 We developed FLAMINGO to reconstruct the high-resolution 3D genome structures based on the chromatin contact maps with high scalability. By integrating the 1D epigenomics dataset, the integrative version of FLAMINGO (iFLAMINGO) is able to make cross-cell-type predictions and reconstruct high-resolution 3D structures from low-resolution contact maps.
 
