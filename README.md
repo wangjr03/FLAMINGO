@@ -22,9 +22,11 @@ The implementation of the algorithm is based on bedtools and  R 3.5.1. It depend
 
 ## Installation of the FLAMINGOr package
 The R package for FLAMINGO (*FLAMINGOr*) can be installed through Github using *devtools*:<br>
-`install.packages("devtools")`<br>
-`install_github('wangjr03/FLAMINGO/FLAMINGOr')`<br>
-
+```
+install.packages("devtools")
+library(devtools)
+install_github('wangjr03/FLAMINGO/FLAMINGOr')
+```
 ### Input data 
 Three standard formats of chromatin interaction data are supported: *.hic*, *.mcool* and the sparse matrix format.
 
