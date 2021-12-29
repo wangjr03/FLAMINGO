@@ -272,5 +272,5 @@ We provide the pre-calculated 3D genome structures for all 23 chromosomes in six
 | eQTL | LCL | www.geuvadis.org |
 | hQTL | GM12878 | https://www.zaugg.embl.de/data-and-tools/distal-chromatin-qtls/ |
 
-3. Comparing with 3D genome structures in single cells:
+3. Comparing with 3D genome structures in single cells:\br
 The 3D genome structures in single cells (STORM) can be downloaded at https://github.com/BogdanBintu/ChromatinImaging.
