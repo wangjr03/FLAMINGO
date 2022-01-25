@@ -76,7 +76,7 @@ flamingo.main_func_large(
 *downsampling_rates*: Fraction of contacts to be used for the
           reconstruction.<br>
 
-  *lambda*: Lagrigian coefficient.<br>
+  *lambda*: Lagrangian coefficient.<br>
 
 *max_dist*: The maximum allowed distance between two consecutive points.<br>
 
