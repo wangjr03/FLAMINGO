@@ -103,7 +103,7 @@ flamingo.main_func_large(
           rows.<br>
 
 *Example code:*<br>
-Taking Hi-C data in GM12878 '4DNFI1UEG1HD.hic' as an example (can be downloaded [here](https://data.4dnucleome.org/files-processed/4DNFI1UEG1HD/)), the following commands reconstruct the 3D genome structure of chromosome 1 in 5kb resolution.<br>
+Taking Hi-C data in GM12878 '4DNFI1UEG1HD.hic' as an example (can be downloaded [here](https://data.4dnucleome.org/files-processed/4DNFI1UEG1HD/)), the following commands reconstruct the 3D genome structure of chromosome 1 in 5kb resolution. The whole process should take less than 30 minutes.<br>
 ```
 
 library(FLAMINGOr)
