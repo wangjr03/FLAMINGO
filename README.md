@@ -270,6 +270,7 @@ We provide the pre-calculated 3D genome structures for all 23 chromosomes in six
 | eQTL | whole-blood | Battle, A. et al. Characterizing the genetic basis of transcriptome diversity through RNA-sequencing of 922 individuals. Genome Res 24, 14-24 (2014)|
 | eQTL | LCL | http://www.muther.ac.uk/ |
 | eQTL | LCL | www.geuvadis.org |
+| eQTL | whole-blood | https://www.gtexportal.org/home |     
 | hQTL | GM12878 | https://www.zaugg.embl.de/data-and-tools/distal-chromatin-qtls/ |
 
 3. Comparing with 3D genome structures in single cells:<br>
