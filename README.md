@@ -262,7 +262,7 @@ flamingo_pred =  flamingo.reconstruct_structure_worker(input_if,pd,0.75,1,0.01,1
 ```
  
 ## Down-sampled Hi-C data
-We also provided the down-sampled Hi-C contact maps in chr21 under 5-kb resolution from Rao et al (2014) in the folder *down-sampled_HiC_data_chr21*. In total, 10 downsampling rates ranging from 5% to 90% are provided. For each downsampling rate, pairwise distance matrices (PD_) and interaction frequency matrices (IF_) are provided in CSC matrix format.
+We also provided the down-sampled Hi-C contact maps in chr21 under 5-kb resolution from Rao et al (2014) in the folder *down-sampled_HiC_data_chr21*. In total, 10 down-sampling rates ranging from 5% to 90% are provided. For each down-sampling rate, pairwise distance matrices (PD_) and interaction frequency matrices (IF_) are provided in CSC matrix format.
 
 ## Relevant data to reproduce the analysis
 1. Performance validation using orthogonal chromatin interaction datasets: 
