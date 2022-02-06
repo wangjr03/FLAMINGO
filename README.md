@@ -258,7 +258,7 @@ library(FLAMINGOr)
 input_pd  = read.table('simulations/loci_300/Distance_matrix_no_noise.txt')
 input_pd <- as.matrix(input_pd)
 input_if = input_pd^(-4)
-flamingo_pred =  flamingo.reconstruct_structure_worker(input_if,pd,0.75,1,0.01,1)
+flamingo_pred =  flamingo.reconstruct_structure_worker(input_if,input_pd,0.75,1,0.01,1)
 ```
  
 ## Down-sampled Hi-C data
