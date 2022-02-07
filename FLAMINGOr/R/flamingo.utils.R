@@ -127,7 +127,7 @@ sub_prob <- function(gamma,cl,b,d,omega,omega_diag,func_list,func_list_diag,all_
     #print(paste0('Loss: ',error.2))
     #print(paste0('Coordinate change: ',error))
     iter <- iter+1
-    if(iter>500) break
+    if(iter>200) break
   }
   return(P_n)
 }

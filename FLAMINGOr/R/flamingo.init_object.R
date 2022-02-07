@@ -6,3 +6,4 @@
 #' @export
 setClass("flamingo", slots=list(IF="matrix", PD='matrix',n_frag='numeric',chr_name='character'))
 setClass("flamingo_prediction", slots=list(id="numeric", coordinates='matrix',input_n='numeric'))
+setClass("flamingo_large", slots=list(IF="dgCMatrix", PD='dgCMatrix',n_frag='numeric',chr_name='character'))
