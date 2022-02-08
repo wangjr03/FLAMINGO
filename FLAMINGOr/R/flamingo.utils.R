@@ -231,18 +231,8 @@ get_end_point <- function(all_points){
 
 ave_dist <- function(r,pd){
   n = dim(pd)[1]
-  res = c()
-  k <- 1
-  for(i in 1:(n-r)){
-  if(is.na(pd[i,i+r])){
-      next
-    }
-    if(pd[i,i+r]<Inf){
-      res[k] <- pd[i,i+r]
-      k <- k+1
-    }
-  }
-  a = mean(res)
+  res = pd[row(pd)-col(pd)==r]
+  a = mean(res,na.rm=T)
   return(mean(a))
 }
 
@@ -257,6 +247,8 @@ get_dist_vec <- function(all_points,id_list,pd){
       tmp_dist = ave_dist(start_id[i]-end_id[i],pd)
     }else if(tmp_dist == Inf){
       tmp_dist = ave_dist(start_id[i]-end_id[i],pd)
+    }else if(tmp_dist == 0){
+      tmp_dist = 0.001
     }
     dist_vec = c(dist_vec,tmp_dist)
     
