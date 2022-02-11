@@ -8,7 +8,7 @@
 **An orbiting chromosome 1 on Youtube**<br>
 [![Orbiting chr1](https://img.youtube.com/vi/75t2qSxke3E/0.jpg)](https://youtu.be/75t2qSxke3E)
 
-**The 3D genome structure for chromosomes 1-4 in 1kb resolution**<br>
+**The 3D genome structure for chromosomes 1-4 in 1-kb resolution**<br>
 ![1kb_resolution](./predictions/images/1kb_res.png)
 
 ## Summary
