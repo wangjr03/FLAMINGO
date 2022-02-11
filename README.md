@@ -1,14 +1,14 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion algorithm for reconstruct**IN**g high-resolution 3D **G**enome **O**rganizations
 
 ## Gallery
-**The 3D structures for chromosome 1-4** in GM12878. The 3D structures for all 23 chromosomes could be found [here](https://docs.google.com/presentation/d/1dJXx5xVuXCd9MYfpq8AJwn1UPTieAgFbcdfJlnd8AbI/edit?usp=sharing). <br>
+**The 3D structures for chromosome 1-4 in 5-kb resolution** in GM12878. The 3D structures for all 23 chromosomes could be found [here](https://docs.google.com/presentation/d/1dJXx5xVuXCd9MYfpq8AJwn1UPTieAgFbcdfJlnd8AbI/edit?usp=sharing). <br>
 
 ![chr1-4](./predictions/images/chr1-4.png)
 
 **An orbiting chromosome 1 on Youtube**<br>
 [![Orbiting chr1](https://img.youtube.com/vi/75t2qSxke3E/0.jpg)](https://youtu.be/75t2qSxke3E)
 
-**The 3D genome structure in 1kb resolution for chromosomes 1-4**<br>
+**The 3D genome structure for chromosomes 1-4 in 1kb resolution**<br>
 ![1kb_resolution](./predictions/images/1kb_res.png)
 
 ## Summary
