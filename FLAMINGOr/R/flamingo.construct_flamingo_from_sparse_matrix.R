@@ -17,8 +17,8 @@ flamingo.construct_flamingo_from_sparse_matrix <- function(raw_count_file,norm_f
   n <- ceiling(chr_size/resolution)
   normalized_mat <- matrix(0,n,n)
   normalized_num <- c()
-  i_ind <- ceiling(raw_count[,1]/resolution)
-  j_ind <- ceiling(raw_count[,2]/resolution)
+  i_ind <- 1+floor(raw_count[,1]/resolution)
+  j_ind <- 1+floor(raw_count[,2]/resolution)
   row_count = dim(raw_count)[1]
   pb <- progress::progress_bar$new(total = row_count)
   print('Constructing matrix...')
