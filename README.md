@@ -33,6 +33,7 @@ Three standard formats of chromatin interaction data are supported: *.hic*, *.mc
 ### Reconstruct the 3D genome structure with FLAMINGOr
 The main function of FLAMINGO can be utilized as follow:<br>
 ```
+library(Matrix)
 flamingo.main_func_large(
        hic_data_low,
        file_format,
@@ -108,6 +109,7 @@ Taking Hi-C data in GM12878 '4DNFI1UEG1HD.hic' as an example (can be downloaded 
 
 library(FLAMINGOr)
 library(GenomicFeatures)
+library(Matrix)
 all_size <- getChromInfoFromUCSC("hg38")
 chr_name='1'
 chr_name = as.numeric(chr_name)
