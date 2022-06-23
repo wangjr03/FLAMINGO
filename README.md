@@ -25,7 +25,7 @@ The R package for FLAMINGO (*FLAMINGOr*) can be installed through Github using *
 ```
 install.packages("devtools")
 library(devtools)
-install_github('wangjr03/FLAMINGO/FLAMINGOr')
+install_github('wangjr03/FLAMINGO/FLAMINGOr',ref='HEAD')
 ```
 ### Input data 
 Three standard formats of chromatin interaction data are supported: *.hic*, *.mcool* and the sparse matrix format.
