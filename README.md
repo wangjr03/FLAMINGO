@@ -128,7 +128,7 @@ res = flamingo.main_func_large(hic_data_low='../4DNFI1UEG1HD.hic',
 A data frame with four columns containing the fragment id (the first column) and the 3D coordinates (the other three columns) will be returned.
 
 ### visualize the 3D genome structure using ParaView
-ParaView is an open-source, multi-platform data analysis and visualization application. To visualize the 3D genome structure using FLAMINGO, the user need to convert the 3D coordinates into a *.vtk* file. In the FLAMINGOr package, a `write.vtk` function is provided for such conversion using the command below:<br>
+ParaView is an open-source, multi-platform data analysis and visualization application. To visualize the 3D genome structure using FLAMINGO, the user need to convert the 3D coordinates into a *.vtk* file and use the ParaView software to visualize the structure. In the FLAMINGOr package, a `write.vtk` function is provided for such conversion using the command below:<br>
 ```
 write.vtk(points=res[,-1],lookup_table=rep(1,dim(res)[1]),name='chr1 5kb 3D structure',opt_path='./chr1_5kb.vtk')
 ```
