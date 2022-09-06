@@ -1,4 +1,5 @@
-load("/mnt/ufs18/rs-027/compbio/wanglab/haowang/Proj10_recon_3D/output/1001/exponential_linear_model_-0.4.Rdata")
+# load("/mnt/ufs18/rs-027/compbio/wanglab/haowang/Proj10_recon_3D/output/1001/exponential_linear_model_-0.4.Rdata")
+load("../predictions/exponential_linear_model_-0.4.Rdata")
 
 args <- commandArgs(T)
 #one arguments: 1. directory of DNase-genomic-frag data
