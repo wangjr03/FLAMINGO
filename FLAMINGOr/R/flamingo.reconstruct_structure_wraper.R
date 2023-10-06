@@ -15,7 +15,7 @@ flamingo.reconstruct_structure_wraper<- function(index,sw,lambda,max_dist,nThrea
   input_if <- read.table(paste0("./Domain_data/IF_domain_",index,'.txt'))
   file <- dir('./Domain_data/')
   if(check_data_availability(pd)){
-    res =  flamingo.reconstruct_structure_worker(input_if,pd,sw,lambda,max_dist,nThread=1)
+    res =  flamingo.reconstruct_structure_worker(input_if,pd,sw,lambda,max_dist,nThread=nThread)
   }else{
     res = NULL
   }
