@@ -111,10 +111,8 @@ library(FLAMINGOr)
 library(GenomicFeatures)
 library(Matrix)
 all_size <- getChromInfoFromUCSC("hg38")
-chr_name='1'
-chr_name = as.numeric(chr_name)
-chr_size = all_size[chr_name,2]
-chr_name <- paste0('chr',chr_name)
+chr_name ='chr1'
+chr_size = all_size[all_size$chrom==chr_name,2]
 res = flamingo.main_func_large(hic_data_low='../4DNFI1UEG1HD.hic',
                        file_format='hic',
                          domain_res=1e6,frag_res=5e3,
