@@ -1,5 +1,8 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion algorithm for reconstruct**IN**g high-resolution 3D **G**enome **O**rganizations
 
+## [Update: 1/20/2024] FLAMINGOrLite is released!
+Please see our latest version of FLAMINGOr, which is faster, more memory-efficient, and more user-friendly: https://github.com/JiaxinYangJX/FLAMINGOrLite
+
 ## Gallery
 **The 3D structures for chromosome 1-4 in 5-kb resolution** in GM12878. The 3D structures for all 23 chromosomes could be found [here](https://docs.google.com/presentation/d/1dJXx5xVuXCd9MYfpq8AJwn1UPTieAgFbcdfJlnd8AbI/edit?usp=sharing). <br>
 
