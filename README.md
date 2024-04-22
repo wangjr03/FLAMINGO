@@ -1,5 +1,16 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion algorithm for reconstruct**IN**g high-resolution 3D **G**enome **O**rganizations
 
+# FLAMINGOrLite
+Lite version of FLAMINGO, high-resolution 3D chromosome structures reconstruction based on Hi-C.
+
+https://github.com/JiaxinYangJX/FLAMINGOrLite/
+
+## Differences between FLAMINGOrLite and FLAMINGOr
+1. FLAMINGOrLite doesn't support iFLAMINGO
+2. FLAMINGOrLite is faster and more memory-efficient
+3. FLAMINGOrLite is more user-friendly and fixed bugs in FLAMINGOr
+
+
 ## Gallery
 **The 3D structures for chromosome 1-4 in 5-kb resolution** in GM12878. The 3D structures for all 23 chromosomes could be found [here](https://docs.google.com/presentation/d/1dJXx5xVuXCd9MYfpq8AJwn1UPTieAgFbcdfJlnd8AbI/edit?usp=sharing). <br>
 
