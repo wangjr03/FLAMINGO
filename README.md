@@ -1,11 +1,11 @@
 # FLAMINGO: **F**ast **L**ow-r**A**nk **M**atrix completion algorithm for reconstruct**IN**g high-resolution 3D **G**enome **O**rganizations
 
-# FLAMINGOrLite
+## !UPDATE (04/22/2024): FLAMINGOrLite
 Lite version of FLAMINGO, high-resolution 3D chromosome structures reconstruction based on Hi-C.
 
 https://github.com/JiaxinYangJX/FLAMINGOrLite/
 
-## Differences between FLAMINGOrLite and FLAMINGOr
+### Differences between FLAMINGOrLite and FLAMINGOr
 1. FLAMINGOrLite doesn't support iFLAMINGO
 2. FLAMINGOrLite is faster and more memory-efficient
 3. FLAMINGOrLite is more user-friendly and fixed bugs in FLAMINGOr
